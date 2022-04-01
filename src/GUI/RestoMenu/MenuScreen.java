@@ -23,8 +23,9 @@ import kraya.moazmar.com.CONSTANTS;
 import kraya.moazmar.com.Session;
 
 public class MenuScreen extends Form {
+
     public MenuScreen(Resources res, Restaurant restaurant) {
-        
+
         setLayout(BoxLayout.y());
         Toolbar tb = getToolbar();
         tb.setTitle("Menu");
@@ -32,26 +33,27 @@ public class MenuScreen extends Form {
         tb.setBackCommand("Back", (ets) -> {
             new DashboardScreen(res).show();
         });
-        
-        
+
         tb.addMaterialCommandToOverflowMenu("Prix Déroissant", FontImage.MATERIAL_ARROW_DROP_DOWN,
                 ev -> {
-                    Session.MenuPrixCroissant=false;
-                    new MenuScreen(res,restaurant).show();
+                    Session.MenuPrixCroissant = false;
+                    new MenuScreen(res, restaurant).show();
                 }
         );
         tb.addMaterialCommandToOverflowMenu("Prix Croissant", FontImage.MATERIAL_ARROW_DROP_UP,
                 ev -> {
-                    Session.MenuPrixCroissant=true;
-                    new MenuScreen(res,restaurant).show();
+                    Session.MenuPrixCroissant = true;
+                    new MenuScreen(res, restaurant).show();
                 }
         );
-        
+
         ArrayList<MenuElement> panier = new ArrayList<MenuElement>();
-        Button panierBtn = new Button("Panier ("+panier.size()+")","adminBtn");
-        panierBtn.addActionListener(l->{new PanierScreen(res, panier,restaurant).show();});
+        Button panierBtn = new Button("Panier (" + panier.size() + ")", "adminBtn");
+        panierBtn.addActionListener(l -> {
+            new PanierScreen(res, panier, restaurant).show();
+        });
         add(panierBtn);
-        
+
         ArrayList<String> categories = new ArrayList<>();
         categories.add("BOXES");
         categories.add("MEALS");
@@ -65,22 +67,22 @@ public class MenuScreen extends Form {
             title.setUIID("CatName");
             add(title);
             elements.stream()
-                    .filter((e)->e.getCategorie().equals(cat))
-                    .sorted((e1,e2)->{
-                        if(Session.MenuPrixCroissant){
-                            return (int)(e1.getPrix()-e2.getPrix());
+                    .filter((e) -> e.getCategorie().equals(cat))
+                    .sorted((e1, e2) -> {
+                        if (Session.MenuPrixCroissant) {
+                            return (int) (e1.getPrix() - e2.getPrix());
                         }
-                        return -1*(int)(e1.getPrix()-e2.getPrix());
+                        return -1 * (int) (e1.getPrix() - e2.getPrix());
                     })
                     .map((MenuElement e) -> {
                         Container element = new Container();
                         element.setLayout(BoxLayout.x());
-                        
+
                         EncodedImage enc = EncodedImage.createFromImage(res.getImage("hot-pot.png"), false);
                         URLImage urlim = URLImage.createToStorage(enc, e.getImage(), CONSTANTS.IMAGEURL + e.getImage(), URLImage.RESIZE_SCALE);
                         ImageViewer imgv = new ImageViewer(urlim);
                         element.add(imgv);
-                        
+
                         Container data = new Container();
                         data.setLayout(BoxLayout.y());
                         Label l1 = new Label();
@@ -88,16 +90,18 @@ public class MenuScreen extends Form {
                         SpanLabel l2 = new SpanLabel();
                         l2.setText(e.getDescription());
                         Label l4 = new Label();
-                        l4.setText("Prix : " + e.getPrix()+"Dt");
-                        Button addToPanier = new Button("Ajouter au Panier",FontImage.MATERIAL_SHOPPING_BASKET,"todayTitle");
-                        addToPanier.addActionListener(xx->{
+                        l4.setText("Prix : " + e.getPrix() + "Dt");
+
+                        Button addToPanier = new Button("Ajouter au Panier", FontImage.MATERIAL_SHOPPING_BASKET, "todayTitle");
+                        addToPanier.addActionListener(xx -> {
                             panier.add(e);
-                            panierBtn.setText("Panier ("+panier.size()+")");
-                                });
-                        data.addAll(l1, l2, l4,addToPanier);
+                            panierBtn.setText("Panier (" + panier.size() + ")");
+                        });
+
+                        data.addAll(l1, l2, l4, addToPanier);
                         element.add(data);
                         return element;
-            }).forEachOrdered((element) -> {
+                    }).forEachOrdered((element) -> {
                 add(element);
             });
         }

@@ -24,7 +24,7 @@ public class UserService {
 
     public ArrayList<User> users;
 
-    public static UserService instance = null;
+    public static UserService instance;
 
     public static boolean resultOk = true;
     String json;
@@ -49,6 +49,7 @@ public class UserService {
         String url = CONSTANTS.BASEURL + "register";
         if (email.isEmpty() || nom.isEmpty() || prenom.isEmpty() || tel.isEmpty() || plainPassword.isEmpty()) {
             Dialog.show("Erreur", "Veuillez remplir les champs", "OK", null);
+            
         }
 
         req.setUrl(url);
@@ -125,7 +126,7 @@ public class UserService {
         ConnectionRequest r = new ConnectionRequest();
         r.setUrl(url);
         r.setPost(true);
-        r.addArgument("id", u.getId() + "");
+        r.addArgument("id", u.getId()+"");
         r.addArgument("nom", u.getNom());
         r.addArgument("prenom", u.getPrenom());
         r.addArgument("email", u.getEmail());

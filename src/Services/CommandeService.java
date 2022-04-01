@@ -58,7 +58,6 @@ public class CommandeService {
             JSONParser j = new JSONParser();
             Map<String, Object> elementListJson
                     = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
-
             List<Map<String, Object>> list = (List<Map<String, Object>>) elementListJson.get("res");
             for (Map<String, Object> obj : list) {
                 Commande r = new Commande();
@@ -96,7 +95,8 @@ public class CommandeService {
     String res = "";
 
     public String qrcode(int id) {
-
+      
+        
         String url = CONSTANTS.BASEURL + "cmd/qrcode/";
         req.setUrl(url);
         req.setPost(false);
@@ -107,6 +107,7 @@ public class CommandeService {
                 String jsonText = new String(req.getResponseData());
                 JSONParser j = new JSONParser();
                 Map<String, Object> elementListJson;
+                System.out.println(jsonText);
                 try {
                     elementListJson = j.parseJSON(new CharArrayReader(jsonText.toCharArray()));
                     res = (String) elementListJson.get("qrcode");
@@ -116,6 +117,8 @@ public class CommandeService {
 
             }
         });
+
+
         NetworkManager.getInstance().addToQueueAndWait(req);
         return res;
     }

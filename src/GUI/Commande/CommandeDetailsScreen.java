@@ -33,6 +33,8 @@ public class CommandeDetailsScreen extends Form {
 
     CommandeDetailsScreen(Resources rs, Commande cmd) {
         setLayout(BoxLayout.y());
+        
+        
         Toolbar tb = getToolbar();
         tb.setTitle("Commande n° " + cmd.getId());
         tb.setTitleCentered(true);
@@ -51,9 +53,12 @@ public class CommandeDetailsScreen extends Form {
         
         Container c = new Container();
         c.setLayout(BoxLayout.y());
+        
         EncodedImage encProfile = EncodedImage.createFromImage(rs.getImage("hot-pot.png"), false);
         URLImage urlimProfile = URLImage.createToStorage(encProfile, r.getImages().get(0), CONSTANTS.AVATARURL + r.getImages().get(0), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgvProfile = new ImageViewer(urlimProfile);
+        
+        
         Image profilePic = imgvProfile.getImage();
         Image mask = rs.getImage("round-mask.png");
         profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
@@ -123,6 +128,8 @@ public class CommandeDetailsScreen extends Form {
             btns.addAll(Cancel);
             c.addAll(change, btns);
         }
+        
+        
         Button qrcodeBtn = new Button("QR CODE","adminBtn");
         qrcodeBtn.addActionListener(et->{
             QRCodeScreen q = new QRCodeScreen(rs, cmd);

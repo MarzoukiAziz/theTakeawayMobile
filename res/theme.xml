@@ -4,12 +4,17 @@
     <image name="archi.png"  />
     <image name="BackgroundRect.png" type="multi"  />
     <image name="bg.jpg"  />
+    <image name="blog.jpg"  />
+    <image name="blogicon.png"  />
     <image name="duke.png" type="multi"  />
     <image name="gradient-overlay.png"  />
     <image name="hot-pot.png"  />
     <image name="login-background.jpg"  />
     <image name="logo2.png"  />
     <image name="notes.png" type="multi"  />
+    <image name="qr.jpg"  />
+    <image name="recincon.png"  />
+    <image name="reclamation-bg.jpg"  />
     <image name="restaurant-bg.jpeg"  />
     <image name="restaurant-bg.jpg"  />
     <image name="round-mask.png" type="multi"  />
@@ -320,6 +325,12 @@
         <font key="adminBtn.font" type="system" face="0" style="1" size="16" />
         <val key="adminBtn.margin" value="20.0,20.0,20.0,20.0" />
         <val key="adminBtn.padding" value="10.0,10.0,0.0,0.0" />
+        <val key="blogsToolbar.bgImage" value="blog.jpg" />
+        <val key="blogsToolbar.bgType" value="1" />
+        <gradient key="commentaire.bgGradient" color1="13421772" color2="13421772" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="commentaire.bgType" value="7" />
+        <val key="commentaire.margin" value="30.0,30.0,30.0,30.0" />
+        <val key="commentaire.padding" value="20.0,20.0,20.0,20.0" />
         <val key="dashboardToolbar.bgImage" value="restaurant-bg.jpg" />
         <val key="dashboardToolbar.bgType" value="1" />
         <val key="delBtn.align" value="4" />
@@ -331,6 +342,16 @@
         <val key="editBtn.bgType" value="7" />
         <val key="editBtn.fgColor" value="ffffff" />
         <val key="press#transparency" value="0" />
+        <gradient key="reclamation.bgGradient" color1="13434879" color2="13434879" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="reclamation.bgType" value="8" />
+        <val key="reclamation.margin" value="30.0,30.0,30.0,30.0" />
+        <val key="reclamation.padding" value="20.0,20.0,20.0,20.0" />
+        <val key="recsToolbar.bgImage" value="reclamation-bg.jpg" />
+        <val key="recsToolbar.bgType" value="1" />
+        <gradient key="reponse.bgGradient" color1="13421772" color2="13421772" posX="0.5" posY="0.5" radius="1.0" />
+        <val key="reponse.bgType" value="7" />
+        <val key="reponse.margin" value="20.0,20.0,20.0,20.0" />
+        <val key="reponse.padding" value="10.0,10.0,10.0,10.0" />
         <val key="revc.align" value="4" />
         <gradient key="revc.bgGradient" color1="13421772" color2="13421772" posX="0.5" posY="0.5" radius="1.0" />
         <val key="revc.bgType" value="7" />

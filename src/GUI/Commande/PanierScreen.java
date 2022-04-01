@@ -31,11 +31,14 @@ public class PanierScreen extends Form {
         tb.setBackCommand("Back", (ets) -> {
             new MenuScreen(res,restaurant).show();
         });
+        
+        
         HashMap<MenuElement, Integer> quantities = new HashMap<MenuElement, Integer>();
         Label prixTotal = new Label("Prix Total: " + calculePrixTotale(quantities));
 
         panier.stream().forEach(e -> {
             quantities.put(e, 1);
+            
             Container element = new Container();
             element.setLayout(BoxLayout.x());
             Label ename = new Label(e.getNom());
@@ -43,13 +46,16 @@ public class PanierScreen extends Form {
             Button addBtn = new Button(FontImage.MATERIAL_ADD);
             addBtn.addActionListener(x -> {
                 quantities.put(e, quantities.get(e) + 1);
+                //maj
                 quan.setText("x" + quantities.get(e));
                 prixTotal.setText("Prix Total: " + calculePrixTotale(quantities));
             });
             Button subBtn = new Button(FontImage.MATERIAL_CANCEL);
             subBtn.addActionListener(x -> {
                 if (quantities.get(e) > 0) {
+                    
                     quantities.put(e, quantities.get(e) - 1);
+                    //maj
                     quan.setText("x" + quantities.get(e));
                     prixTotal.setText("Prix Total: " + calculePrixTotale(quantities));
                 }

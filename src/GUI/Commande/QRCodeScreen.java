@@ -22,7 +22,11 @@ public class QRCodeScreen extends Form {
         tb.setBackCommand("Back", (ets) -> {
             new CommandeDetailsScreen(res, cmd).show();
         });
+        
+        
+        
         String qrCodeLink =  CONSTANTS.QRCODEURL + CommandeService.getInstance().qrcode(cmd.getId());
+        
         EncodedImage enc = EncodedImage.createFromImage(res.getImage("qr.jpg"), false);
         URLImage urlim = URLImage.createToStorage(enc, qrCodeLink,qrCodeLink, URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgv = new ImageViewer(urlim);

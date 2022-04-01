@@ -25,14 +25,17 @@ public class MyProfileScreen extends Form {
         Toolbar tb = getToolbar();
         tb.setTitle("Mon Profile");tb.setTitleCentered(true);
         tb.setBackCommand("Back",(ets)->{new DashboardScreen(res).show();});
+        
         Container c = new Container();
         c.setLayout(BoxLayout.y());
         
         User u= Session.currentUser;
         
         
-        EncodedImage encProfile = EncodedImage.createFromImage(res.getImage("user.jpg"), false);
-        URLImage urlimProfile = URLImage.createToStorage(encProfile,u.getAvatar(), CONSTANTS.AVATARURL + u.getAvatar() , URLImage.RESIZE_SCALE_TO_FILL);
+        EncodedImage encProfile =
+                EncodedImage.createFromImage(res.getImage("user.jpg"), false);
+        URLImage urlimProfile =
+                URLImage.createToStorage(encProfile,u.getAvatar(), CONSTANTS.AVATARURL + u.getAvatar() , URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgvProfile = new ImageViewer(urlimProfile);
         Image profilePic =imgvProfile.getImage();
         Image mask = res.getImage("round-mask.png");

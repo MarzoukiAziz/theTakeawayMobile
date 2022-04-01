@@ -43,6 +43,8 @@ public class UsersAdminScreen extends Form {
                     profilePic = profilePic.fill(mask.getWidth(), mask.getHeight());
                     Label profilePicLabel = new Label(profilePic, "ProfilePicTitle");
                     profilePicLabel.setMask(mask.createMask());
+                    
+                    
                     element.add(profilePicLabel);
                     
                     Container data = new Container();
@@ -79,7 +81,8 @@ public class UsersAdminScreen extends Form {
                     data.addAll(id,nom, prenom,email,tel,points, delete);
                     element.add(data);
                     return element;
-                }).forEachOrdered((element) -> {
+                })
+                .forEachOrdered((element) -> {
             add(element);
         });
     }

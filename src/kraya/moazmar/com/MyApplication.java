@@ -3,9 +3,11 @@ package kraya.moazmar.com;
 import GUI.Reservation.ChartsScreen;
 import Entities.MenuElement;
 import Entities.Restaurant;
+import GUI.Reclamation.ReclamationsScreen;
 import GUI.DashboardScreen;
 import GUI.USER.LoginScreen;
 import GUI.Reservation.NewReservationScreen;
+import GUI.RestoMenu.MenuScreen;
 import Services.MenuService;
 import com.codename1.components.ImageViewer;
 import static com.codename1.ui.CN.*;
@@ -27,12 +29,12 @@ import com.codename1.ui.util.UITimer;
 import java.io.IOException;
 import com.codename1.ui.Toolbar;
 import com.codename1.io.NetworkEvent;
+import com.codename1.messaging.Message;
 import com.codename1.ui.EncodedImage;
 import com.codename1.ui.URLImage;
 import java.util.ArrayList;
 import javafx.scene.image.ImageView;
 import sun.awt.image.URLImageSource;
-
 
 public class MyApplication {
 
@@ -54,32 +56,33 @@ public class MyApplication {
         addNetworkErrorListener(err -> {
             // prevent the event from propagating
             err.consume();
-            if(err.getError() != null) {
+            if (err.getError() != null) {
                 Log.e(err.getError());
             }
             Log.sendLogAsync();
             Dialog.show("Connection Error", "There was a networking error in the connection to " + err.getConnectionRequest().getUrl(), "OK", null);
-        });        
+        });
     }
-    
+
     public void start() {
-        if(current != null){
+        if (current != null) {
             current.show();
             return;
         }
+        
         LoginScreen d = new LoginScreen(theme);
         d.show();
-         
+
     }
 
     public void stop() {
         current = getCurrentForm();
-        if(current instanceof Dialog) {
-            ((Dialog)current).dispose();
+        if (current instanceof Dialog) {
+            ((Dialog) current).dispose();
             current = getCurrentForm();
         }
     }
-    
+
     public void destroy() {
     }
 

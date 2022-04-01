@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import kraya.moazmar.com.CONSTANTS;
 import kraya.moazmar.com.Session;
+
 public class BlogService {
    public ArrayList<Blog> blogs;
    public ArrayList<Commentaire> comments;
@@ -155,7 +156,6 @@ public class BlogService {
      public boolean changerStatutBlog(Blog e) {
         String url = CONSTANTS.BASEURL + "blog/change/";
         ConnectionRequest r = new ConnectionRequest();
-
         r.setUrl(url);
         r.setPost(true);
         r.addArgument("id", e.getId() + "");
@@ -172,7 +172,6 @@ public class BlogService {
     }
      
      public void deleteBlog(int id) {
-
         ConnectionRequest con = new ConnectionRequest();
         con.setUrl(  CONSTANTS.BASEURL + "blog/delete/"+id);
         con.addResponseListener(new ActionListener<NetworkEvent>() {

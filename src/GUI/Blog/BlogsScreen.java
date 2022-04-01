@@ -75,7 +75,6 @@ public class BlogsScreen extends SideMenuBaseForm {
         tb.setTitleComponent(fab.bindFabToContainer(titleCmp, CENTER, BOTTOM));
         add(new Label("Découvrir les blogs de nos clients", "TodayTitle"));
         
-        
         Container recherche = new Container();
         recherche.setLayout(BoxLayout.x());
         TextField tf = new TextField();

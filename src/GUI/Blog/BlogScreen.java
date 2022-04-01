@@ -58,30 +58,14 @@ public class BlogScreen extends Form {
         authorBlog.setText("Auteur : " + e.getAuthor_name());
         authorBlog.setUIID("RestaurantSubtitle");
         //Service
-        Form shareBtn = new Form("Partager Ce Blog");
-        ShareButton sb = new ShareButton();
-        sb.setText("Share Screenshot");
-        shareBtn.add(sb);
 
-        Image screenshot = Image.createImage(shareBtn.getWidth(), shareBtn.getHeight());
-        shareBtn.revalidate();
-        shareBtn.setVisible(true);
-        shareBtn.paintComponent(screenshot.getGraphics(), true);
-
-        String imageFile = FileSystemStorage.getInstance().getAppHomePath() + "screenshot.png";
-        try (OutputStream os = FileSystemStorage.getInstance().openOutputStream(imageFile)) {
-            ImageIO.getImageIO().save(screenshot, os, ImageIO.FORMAT_PNG, 1);
-        } catch (IOException err) {
-            System.out.println(err);
-        }
-        sb.setImageToShare(imageFile, "image/png");
         ////
         Label commentairesLabel = new Label("Commentaires : ", "adminBtn");
         Button addBtn = new Button("Nouveau Commentaire");
         addBtn.addActionListener(x -> {
             new NewCommentScreen(res, e).show();
         });
-        c.addAll(imgv, titleBlog, dateBlog, authorBlog, contenuBlog, shareBtn, commentairesLabel, addBtn);
+        c.addAll(imgv, titleBlog, dateBlog, authorBlog, contenuBlog, commentairesLabel, addBtn);
         add(c);
         BlogService.getInstance().getComments(e).stream().forEach(com -> {
             Container con = new Container();
@@ -93,7 +77,21 @@ public class BlogScreen extends Form {
             con.addAll(aname, date, contenu);
             add(con);
         });
-
+        ////Share Service//////
+        ShareButton sb = new ShareButton();
+        sb.setText("Share Screenshot");
+        Image screenshot = Image.createImage(this.getWidth(), this.getHeight());
+        c.revalidate();
+        c.paintComponent(screenshot.getGraphics(), true);
+        String imageFile = FileSystemStorage.getInstance().getAppHomePath() + "screenshot.png";
+        try (OutputStream os = FileSystemStorage.getInstance().openOutputStream(imageFile)) {
+            ImageIO.getImageIO().save(screenshot, os, ImageIO.FORMAT_PNG, 1);
+        } catch (IOException err) {
+            System.out.println(err);
+        }
+        add(sb);
+        //////
+        sb.setImageToShare(imageFile, "image/png");
     }
 
 }

@@ -29,17 +29,20 @@ public class RegisterScreen extends Form {
 
         Image profilePic = theme.getImage("logo2.png");
         Label profilePicLabel = new Label(profilePic, "ProfilePic");
+        
+        
+        
         TextField login = new TextField("", "Email", 20, TextField.EMAILADDR);
         TextField nom = new TextField("", "Nom", 20, TextField.USERNAME);
         TextField prenom = new TextField("", "Prenom", 20, TextField.USERNAME);
         TextField tel = new TextField("", "Telephone", 20, TextField.NUMERIC);
         TextField password = new TextField("", "Mot De Passe", 20, TextField.PASSWORD);
-
+        /*
         login.setHint("Email");
         password.setHint("Mot De Passe");
         nom.setHint("Nom");
         prenom.setHint("Prenom");
-        tel.setHint("Téléphone");
+        tel.setHint("Téléphone");*/
         login.getAllStyles().setMargin(LEFT, 0);
         password.getAllStyles().setMargin(LEFT, 0);
         nom.getAllStyles().setMargin(LEFT, 0);

@@ -75,6 +75,7 @@ public class CommandeScreen extends Form {
             new CommandeScreen(rs, "", sqlStartDate).show();
         });
         addAll(calLabel,cal);
+        
         ArrayList<Commande> rev = CommandeService.getInstance().getcommandes();
         ArrayList<Restaurant> res = RestaurantService.getInstance().getRestaurants();
         rev.stream()
@@ -103,6 +104,7 @@ public class CommandeScreen extends Form {
                     Container data = new Container();
                     data.setUIID("revc");
                     data.setLayout(BoxLayout.y());
+                    
                     SpanLabel resto = new SpanLabel();
                     resto.setText("Restaurant : " + r.getNom());
 
@@ -114,6 +116,7 @@ public class CommandeScreen extends Form {
 
                     SpanLabel statut = new SpanLabel();
                     statut.setText("Statut : " + u.getStatut());
+                    
                     Button details = new Button("Details", "editBtn");
                     details.addActionListener((ed)
                             -> {
@@ -122,7 +125,8 @@ public class CommandeScreen extends Form {
 
                     data.addAll(resto, date, pour, statut, details);
                     return data;
-                }).forEachOrdered((element) -> {
+                })
+                .forEachOrdered((element) -> {
             add(element);
         });
 
