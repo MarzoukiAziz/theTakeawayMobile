@@ -38,7 +38,7 @@ public class ReservationDetailsAdminScreen extends Form {
         Container c = new Container();
         c.setLayout(BoxLayout.y());
         EncodedImage encProfile = EncodedImage.createFromImage(rs.getImage("hot-pot.png"), false);
-        URLImage urlimProfile = URLImage.createToStorage(encProfile, res.getImages().get(0), CONSTANTS.AVATARURL + res.getImages().get(0), URLImage.RESIZE_SCALE_TO_FILL);
+        URLImage urlimProfile = URLImage.createToStorage(encProfile, res.getImages(), CONSTANTS.AVATARURL + res.getImages(), URLImage.RESIZE_SCALE_TO_FILL);
         ImageViewer imgvProfile = new ImageViewer(urlimProfile);
         Image profilePic = imgvProfile.getImage();
         Image mask = rs.getImage("round-mask.png");

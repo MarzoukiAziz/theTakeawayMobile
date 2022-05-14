@@ -4,10 +4,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/marzo/Desktop/PiDevMobile/src/Entities/Reservation.java</file>
-            <file>file:/C:/Users/marzo/Desktop/PiDevMobile/src/Entities/MenuElement.java</file>
-            <file>file:/C:/Users/marzo/Desktop/PiDevMobile/src/Services/ReservationService.java</file>
-            <file>file:/C:/Users/marzo/Desktop/PiDevMobile/src/GUI/NewReservationScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/Commande/CommandeDetailsScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/Reservation/ReservationDetailsAdminScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/Reservation/CommandeDetailsScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/Services/RestaurantService.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/DashboardScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/Commande/CommandeDetailsAdminScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/Reservation/NewReservationScreen.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/Entities/Restaurant.java</file>
+            <file>file:/C:/Users/marzo/Desktop/PiDev%20Mobile/theTakeawayMobile/src/GUI/RestoMenu/RestaurantScreen.java</file>
         </group>
     </open-files>
 </project-private>

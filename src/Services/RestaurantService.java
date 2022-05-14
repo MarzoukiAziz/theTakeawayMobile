@@ -52,8 +52,7 @@ public class RestaurantService {
                 ele.setHeure_ouverture(obj.get("heure_ouverture").toString());
                 ele.setHeure_fermeture(obj.get("heure_fermeture").toString());
                 ele.setTelephone(obj.get("telephone").toString());
-                ArrayList<String> imgs =(ArrayList<String>) obj.get("images");
-                ele.setImages(imgs);
+                ele.setImages(obj.get("images").toString());
                 restaurants.add(ele);
             }
         } catch (IOException ex) {

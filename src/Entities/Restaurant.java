@@ -11,11 +11,11 @@ public class Restaurant {
     private String telephone;
     private String heure_ouverture;
     private String heure_fermeture;
-    private ArrayList<String> images;
+    private String images;
     private float x;
     private float y;
 
-    public Restaurant(int id, String nom, String adresse, String description, String telephone, String heure_ouverture, String heure_fermeture, ArrayList<String> images, float x, float y) {
+    public Restaurant(int id, String nom, String adresse, String description, String telephone, String heure_ouverture, String heure_fermeture, String images, float x, float y) {
         this.id = id;
         this.nom = nom;
         this.adresse = adresse;
@@ -87,11 +87,11 @@ public class Restaurant {
         this.heure_fermeture = heure_fermeture;
     }
 
-    public ArrayList<String> getImages() {
+    public String getImages() {
         return images;
     }
 
-    public void setImages(ArrayList<String> images) {
+    public void setImages(String images) {
         this.images = images;
     }
 

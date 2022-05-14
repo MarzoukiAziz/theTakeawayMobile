@@ -44,7 +44,7 @@ public class NewReservationScreen extends Form {
         c.setUIID("RestaurantContainer");
         c.setLayout(BoxLayout.y());
         EncodedImage enc = EncodedImage.createFromImage(res.getImage("hot-pot.png"), false);
-       URLImage urlim = URLImage.createToStorage(enc, e.getImages().get(0), CONSTANTS.IMAGEURL + e.getImages().get(0), URLImage.RESIZE_SCALE);
+       URLImage urlim = URLImage.createToStorage(enc, e.getImages(), CONSTANTS.IMAGEURL + e.getImages(), URLImage.RESIZE_SCALE);
         ImageViewer imgv = new ImageViewer(urlim);
         Label dateLabel= new Label("Date");
         Picker date = new Picker();

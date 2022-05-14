@@ -50,7 +50,7 @@ public class RestaurantScreen extends SideMenuBaseForm {
         c.setLayout(BoxLayout.y());
         
         EncodedImage enc = EncodedImage.createFromImage(res.getImage("hot-pot.png"), false);
-        URLImage urlim = URLImage.createToStorage(enc, e.getImages().get(0), CONSTANTS.IMAGEURL + e.getImages().get(0), URLImage.RESIZE_SCALE);
+        URLImage urlim = URLImage.createToStorage(enc, e.getImages(), CONSTANTS.IMAGEURL + e.getImages(), URLImage.RESIZE_SCALE);
         ImageViewer imgv = new ImageViewer(urlim);
 
         SpanLabel adresse = new SpanLabel();
@@ -92,10 +92,9 @@ public class RestaurantScreen extends SideMenuBaseForm {
         btns.addAll(menu,reserve);
         
         Container imgs = new Container(new FlowLayout());
-        for (String img : e.getImages()) {
-            URLImage urlim2 = URLImage.createToStorage(enc, img, CONSTANTS.IMAGEURL + img, URLImage.RESIZE_SCALE);
+            URLImage urlim2 = URLImage.createToStorage(enc, e.getImages(), CONSTANTS.IMAGEURL + e.getImages(), URLImage.RESIZE_SCALE);
             imgs.add(new ImageViewer(urlim2));
-        }
+   
         
         c.addAll(imgv, adresse, description, horaire, tel,btns, gallerie,imgs);
         add(c);
